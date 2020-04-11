@@ -304,10 +304,12 @@ body {
     background-color: #797070;
     width: 100%;
     font-weight: bold;
+    font-family: monospace;
     margin-top: 50px;
     color: white;
 }
 
 #footer a{
     color: white;
+    font-family: monospace;
 }
