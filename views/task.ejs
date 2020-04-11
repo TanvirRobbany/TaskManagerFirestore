@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f62c4f1dde.js" crossorigin="anonymous"></script>
+    </script>
+    <link rel="stylesheet" href="task.css">
+    <title>Manage Your Task</title>
+</head>
+
+<body>
+    <div id="content_container">
+        <div id="header">
+            <p>Manage Your Task</p>
+        </div>
+        <form method="POST" action="/addTask">
+            <div id="task_input">
+                <div id="input_field">
+                    <input id="input_box" type="text" name="newTask" placeholder="start a task">
+                    <input id="input_date" name="date" type="date">
+                </div>
+                <button id="input_button" type="submit">Enter Task <i class="fas fa-arrow-circle-right"></i>
+            </div>
+        </form>
+
+
+        <!-- Edit Task -->
+        <form method="POST" action="/update">
+            <div id="edit_task" style="visibility: hidden;">
+                <input id="edit_box" type="text" name="editedTask" placeholder="edit your task">
+                <button id="task_done_button" type="submit"><i class="fas fa-check"></i></button>
+            </div>
+        </form>
+
+        <!-- Tasks To Do -->
+        <p class="header">Tasks</p>
+        <div class="container">
+            <% for(var i = 0; i < frontTask.length; i++){
+                    if(!frontTask[i].complete){ %>
+            <div class="task_container">
+                <div id="task_data">
+                    <p id="task_titile"><%= frontTask[i].task %></p>
+                    <p id="task_date"><%= frontTask[i].date %></p>
+                </div>
+                <div id="task_tool">
+                    <a href="/doneTask/<%= frontTask[i].id %>"><button id="task_done_button"><i
+                                class="fas fa-check"></i></button></a>
+                    <!-- <a href="/taskID/<%= frontTask[i].id %>"><button id="task_edit_button" onclick="showEditBox();"><i class="fas fa-pencil-alt"></i></button></a> -->
+                    <a href="/taskID/<%= frontTask[i].id %>"><button id="task_edit_button" onclick="showEditBox();"><i
+                                class="fas fa-pencil-alt"></i></button></a>
+                </div>
+            </div>
+            <% }} %>
+        </div>
+
+
+        <!-- Finished Tasks -->
+        <p class="header">Finished</p>
+        <div class="container">
+            <% for(var i = 0; i < frontTask.length; i++){
+                if(frontTask[i].complete){ %>
+            <div class="task_container">
+                <div id="task_data">
+                    <p id="task_titile"><%= frontTask[i].task %></p>
+                    <p id="task_date"><%= frontTask[i].date %></p>
+                </div>
+                <div id="task_tool">
+                    <a href="/delete/<%= frontTask[i].id %>"><button id="task_delete_button" type="button"><i
+                                class="fas fa-trash-alt"></i></button></a>
+
+                </div>
+
+            </div>
+            <% }} %>
+
+        </div>
+    </div>
+
+    <script>
+        function showEditBox() {
+            var x = document.getElementById("edit_task");
+            x.style.visibility = "visible";
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+
+</html>
