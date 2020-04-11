@@ -298,3 +298,16 @@ body {
     width: 100%;
 }
 
+#footer{
+    float: left;
+    text-align: center;
+    background-color: #797070;
+    width: 100%;
+    font-weight: bold;
+    margin-top: 50px;
+    color: white;
+}
+
+#footer a{
+    color: white;
+}
