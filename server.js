@@ -9,7 +9,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var id;
 
-// your firebaseConfig = {...} here
+// your firebase firestore config SDK (i.e const firebaseConfig = {...}) below
+
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
