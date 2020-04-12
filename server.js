@@ -9,16 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var id;
 
-const firebaseConfig = {
-    apiKey: "AIzaSyDvOYhfFuKyAMnK9yglOEwSlZKqNI2-53U",
-    authDomain: "task-manager-e4202.firebaseapp.com",
-    databaseURL: "https://task-manager-e4202.firebaseio.com",
-    projectId: "task-manager-e4202",
-    storageBucket: "task-manager-e4202.appspot.com",
-    messagingSenderId: "435962504620",
-    appId: "1:435962504620:web:5e5355de89d51f3acfc609",
-    measurementId: "G-11LJ8JHJRY"
-};
+// your firebaseConfig = {...} here
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
